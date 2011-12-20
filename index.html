@@ -1,1 +1,82 @@
-GH Pages
+<!doctype html>
+<html>
+    <head>
+        <title>PHP Performance Charts</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <style>
+            td.group {
+                font-weight:bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class=container>
+            <div class='page-header'>
+                <h1>PHP Performance Metrics</h1>
+            </div>
+            <table class="zebra-striped bordered-table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>1,000</th>
+                        <th>1</th>
+                        <th>Relative &#37;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                                            <tr>
+                            <td class=group colspan=4>date() methods</td>
+                        </tr>
+                                                    <tr>
+                                <td><code><span style="color: #000000">
+<span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"Y-m-d&nbsp;H:i:s"</span><span style="color: #007700">)</span>
+</span>
+</code></td>
+                                <td>0.011858</td>
+                                <td>0.000011</td>
+                                <td>-</td>
+                            </tr>
+                                                    <tr>
+                                <td><code><span style="color: #000000">
+<span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"Y"</span><span style="color: #007700">)</span>
+</span>
+</code></td>
+                                <td>0.010767</td>
+                                <td>0.000010</td>
+                                <td>-</td>
+                            </tr>
+                                                                    <tr>
+                            <td class=group colspan=4>preg_match() methods</td>
+                        </tr>
+                                                    <tr>
+                                <td><code><span style="color: #000000">
+<span style="color: #0000BB">profilePregMatch</span>
+</span>
+</code></td>
+                                <td>0.008510</td>
+                                <td>0.000008</td>
+                                <td>-</td>
+                            </tr>
+                                                    <tr>
+                                <td><code><span style="color: #000000">
+<span style="color: #0000BB">profilePregMatchStoreMatches</span>
+</span>
+</code></td>
+                                <td>0.010223</td>
+                                <td>0.000010</td>
+                                <td>-</td>
+                            </tr>
+                                                    <tr>
+                                <td><code><span style="color: #000000">
+<span style="color: #0000BB">profilePregMatchPostcode</span>
+</span>
+</code></td>
+                                <td>0.010667</td>
+                                <td>0.000010</td>
+                                <td>-</td>
+                            </tr>
+                                                            </tbody>
+            </table>
+        </div>
+    </body>
+</html>
