@@ -1,6 +1,10 @@
 <?php
 
-class PregMatchProfiles {
+class PregMatchProfiles implements IProfile {
+    public function getMethods() {
+        return array();
+    }
+
     public function profilePregMatch() {
         preg_match("/^(.+)$/", "test");
     }
