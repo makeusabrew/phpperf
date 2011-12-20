@@ -63,4 +63,8 @@ class StringProfiles implements IProfile {
     public function profileStrReplace() {
         str_replace("foo", "bar", "foobarfoobar");
     }
+
+    public function profileStrlen() {
+        strlen("some random arbitrary string here");
+    }
 }
