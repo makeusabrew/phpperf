@@ -60,6 +60,18 @@ class StringProfiles implements IProfile {
         implode(" ", array("foo", "bar", "baz", "test", "baz", "bar", "foo"));
     }
 
+    public function profileStrPosStartOfHaystack() {
+        strpos("abcdefghijklmnopqrstuvwxyq", "a");
+    }
+
+    public function profileStrPosMiddleOfHaystack() {
+        strpos("abcdefghijklmnopqrstuvwxyq", "m");
+    }
+
+    public function profileStrPosEndOfHaystack() {
+        strpos("abcdefghijklmnopqrstuvwxyq", "z");
+    }
+
     public function profileStrReplace() {
         str_replace("foo", "bar", "foobarfoobar");
     }
