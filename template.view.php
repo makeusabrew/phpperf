@@ -2,10 +2,17 @@
 <html>
     <head>
         <title>PHP Performance Charts</title>
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
         <style>
             td.group {
                 font-weight:bold;
+                background:#eee !important;
+                color:#000 !important;
+            }
+            code {
+                background-color:inherit;
+                color:inherit;
+                padding:0;
             }
         </style>
     </head>
@@ -15,9 +22,9 @@
                 <h1>PHP Performance Metrics</h1>
             </div>
 
-            <p>Each test comprises of <strong><?php echo number_format($this->meta['iterations']) ?></strong>
+            <p>Each test comprises of <strong><?php echo number_format($this->meta['iterations']) ?></strong> method calls
             averaged over <strong><?php echo $this->meta['repetitions'] ?></strong> repetitions.</p>
-            <p>The mean profile time takes <strong><?php echo $this->meta['mean'] ?> seconds</strong> to run the average method <?php echo number_format($this->meta['iterations']) ?>.</p>
+            <p>The mean profile time takes <strong><?php echo $this->meta['mean'] ?> seconds</strong> to run the average method <?php echo number_format($this->meta['iterations']) ?> times.</p>
 
             <h2>Units</h2>
 

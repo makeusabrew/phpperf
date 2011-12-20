@@ -40,6 +40,22 @@ class StringProfiles implements IProfile {
         explode(" ", $str);
     }
 
+    public function profileHtmlEntities() {
+        htmlentities("this 'is' a <strong>test</strong> <div>\"string!?\"</div>");
+    }
+
+    public function profileHtmlEntitiesQuotes() {
+        htmlentities("this 'is' a <strong>test</strong> <div>\"string!?\"</div>", ENT_QUOTES);
+    }
+
+    public function profileHtmlSpecialChars() {
+        htmlspecialchars("this 'is' a <strong>test</strong> <div>\"string!?\"</div>");
+    }
+
+    public function profileHtmlSpecialCharsQuotes() {
+        htmlspecialchars("this 'is' a <strong>test</strong> <div>\"string!?\"</div>", ENT_QUOTES);
+    }
+
     public function profileImplodeSmallArray() {
         implode(" ", array("foo", "bar", "baz", "test", "baz", "bar", "foo"));
     }
