@@ -40,7 +40,23 @@
             <p>Each test comprises of <strong><?php echo number_format($this->meta['iterations']) ?></strong> method calls
             averaged over <strong><?php echo $this->meta['repetitions'] ?></strong> repetitions.</p>
             <p>The mean profile takes <strong><?php echo $this->meta['mean'] ?> seconds</strong> to run <?php echo number_format($this->meta['iterations']) ?> times.</p>
-            <p><strong>&mu;s</strong> &ndash; microsecond. It takes roughly 350,000 of these to blink your eye.</p>
+            <ul>
+                <li><strong>&mu;s</strong> &ndash; <a href="http://en.wikipedia.org/wiki/Microsecond">microseconds</a>. It takes roughly 350,000 of these to blink your eye</li>
+                <li><strong>ms</strong> &ndash; <a href="http://en.wikipedia.org/wiki/Millisecond">milliseconds</a></li>
+                <li><strong>s</strong> &ndash; the humble <a href="http://en.wikipedia.org/wiki/Second">second</a>.</li>
+            </ul>
+
+            <div class='page-header'>
+                <h2>Benchmark</h2>
+            </div>
+
+            <p>All of these tests are compiled using the same machine each time. Inevitably, each
+            run may vary, but the differences should be slight and the relative performance should be consistent.</p>
+            <ul>
+                <li>AMD Athlon(tm) 64 X2 Dual Core Processor 4200+ (2.2 GHz)</li>
+                <li>3Gb RAM</li>
+                <li>PHP <?php echo phpversion() ?></li>
+            </ul>
 
             <h2>Results</h2>
 
@@ -70,14 +86,18 @@
                 </tbody>
             </table>
             <div class='page-header'>
-                <h2>Contributing</h2>
+                <h2>Contributors</h2>
             </div>
 
             <p><b>phpperf</b> needs you! There are <em>loads</em> of methods and common use-cases not yet profiled.
-            Please see the readme file for how to add your own tests (it's quick &amp; easy!)</p>
+            Please see the <a href='<?php echo $this->url ?>../../../#readme'>readme</a> file for how to add your own tests (it's quick &amp; easy!).
+            Every contributor will be listed here in the order they first helped out with the project. Think of the fame!</p>
+            <ul>
+                <li><a href="http://twitter.com/makeusabrew">@makeusabrew</a> (author)</li>
+            </ul>
 
         </div>
-        <footer class='well'>
+        <footer class='well container'>
             Made by <a href="http://twitter.com/makeusabrew">@makeusabrew</a>.
             Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a>.
         </footer>
