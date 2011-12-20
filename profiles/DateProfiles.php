@@ -3,7 +3,7 @@
 class DateProfiles implements IProfile {
 
     public function getTitle() {
-        return "date() methods";
+        return "Date methods";
     }
 
     public function profileDateWithTypicalString() {

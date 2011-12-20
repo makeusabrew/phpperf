@@ -5,8 +5,9 @@ class HtmlReporter {
         $data = file_get_contents("php://stdin");
         $data = json_decode($data, true);
         echo $this->render("template.view.php", array(
-            'results' => $data['results'],
+            'profiles' => $data['profiles'],
             'meta' => $data['meta'],
+            'url' => 'https://github.com/makeusabrew/phpperf/tree/master/profiles/',
         ));
     }
 

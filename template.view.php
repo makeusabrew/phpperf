@@ -13,6 +13,7 @@
                 background-color:inherit;
                 color:inherit;
                 padding:0;
+                font-size:70%;
             }
         </style>
     </head>
@@ -40,13 +41,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($this->results as $group => $result): ?>
+                    <?php foreach($this->profiles as $profile): ?>
                         <tr>
-                            <td class=group colspan=4><?php echo $group ?></td>
+                            <td class=group colspan=4><a href='<?php echo $this->url.$profile['filename'] ?>'><?php echo $profile['title'] ?></a></td>
                         </tr>
-                        <?php foreach($result as $stats): ?>
+                        <?php foreach($profile['results'] as $stats): ?>
                             <tr>
-                                <td><?php echo $this->highlight($stats['label']) ?></td>
+                                <td><a href='<?php echo $this->url.$profile['filename'] ?>#L<?php echo $stats['startLine'] ?>'><?php echo $this->highlight($stats['label']) ?></a></td>
                                 <td><?php echo $stats['mean'] ?> s</td>
                                 <td><?php echo $this->microformat($stats['single']) ?></td>
                                 <td class='<?php echo ($stats['pc'] < 0) ? 'good' : 'bad' ?>'><?php if ($stats['pc'] > 0):?>+<?php endif; ?><?php echo round($stats['pc'], 2) ?> &#37;</td>

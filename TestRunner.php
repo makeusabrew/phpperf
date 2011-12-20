@@ -6,7 +6,7 @@ class TestRunner {
     const ITERATIONS = 1000;
     const REPETITIONS = 100;
 
-    protected $results = array();
+    protected $profiles = array();
 
     public function setClasses($classes) {
         $this->classes = $classes;
@@ -21,31 +21,38 @@ class TestRunner {
     }
 
     public function run() {
-        $classMean = 0;
-        $classProfiles = 0;
-        foreach ($this->classes as $class) {
+        $globalMean = 0;
+        $globalProfiles = 0;
+        foreach ($this->classes as $k => $class) {
             $reflection = new ReflectionClass($class);
             $classLines = file($reflection->getFileName());
+            $filename = basename($reflection->getFilename());
 
             $instance = new $class();
             $title = $instance->getTitle();
 
             $this->writeLine("Profiling ".$class);
-            $this->results[$title] = array();
+            $this->profiles[$k] = array(
+                'title' => $title,
+                'filename' => $filename,
+                'results' => array(),
+            );
 
             $methods = $reflection->getMethods();
 
-            $k = 0;
+            $results = array();
 
             foreach ($methods as $method) {
                 if (strpos($method->name, "profile") !== 0) {
                     continue;
                 }
                 $this->writeLine("Method: ".$method->name);
+
+                $startLine = $method->getStartLine();
+                $endLine   = $method->getEndLine();
+
                 $label = $this->getLabel($method);
                 if (!$label) {
-                    $startLine = $method->getStartLine();
-                    $endLine   = $method->getEndLine();
                     $label = trim($classLines[$startLine]);
                 }
                 $repetitions = static::REPETITIONS;
@@ -78,21 +85,21 @@ class TestRunner {
                     'single'      => bcdiv(($totalDuration / $repetitions), $iterations, 6),
                     'min'         => $min,
                     'max'         => $max,
+                    'startLine'   => $startLine,
                 );
-                $this->results[$title][$k] = $result;
-                $k++;
-                $classMean += $mean;
-                $classProfiles ++;
+                $results[] = $result;
+                $globalMean += $mean;
+                $globalProfiles ++;
             }
+
+            $this->profiles[$k]['results'] = $results;
         }
 
-        $classMean = bcdiv($classMean, $classProfiles, 6);
-        foreach ($this->results as $title => $results) {
-            $k = 0;
-            foreach($results as $stats) {
-                $stats['pc'] = (($stats['mean'] / $classMean) * 100) - 100;
-                $this->results[$title][$k] = $stats;
-                $k++;
+        $globalMean = bcdiv($globalMean, $globalProfiles, 6);
+        foreach ($this->profiles as $i => $profiles) {
+            foreach($profiles['results'] as $j => $stats) {
+                $stats['pc'] = (($stats['mean'] / $globalMean) * 100) - 100;
+                $this->profiles[$i]['results'][$j] = $stats;
             }
         }
 
@@ -100,9 +107,9 @@ class TestRunner {
             'meta' => array(
                 'iterations' => self::ITERATIONS,
                 'repetitions' => self::REPETITIONS,
-                'mean' => $classMean,
+                'mean' => $globalMean,
             ),
-            'results' => $this->results,
+            'profiles' => $this->profiles,
         )));
     }
 
