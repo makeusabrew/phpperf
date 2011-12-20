@@ -26,7 +26,7 @@
 
             <p>Each test comprises of <strong><?php echo number_format($this->meta['iterations']) ?></strong> method calls
             averaged over <strong><?php echo $this->meta['repetitions'] ?></strong> repetitions.</p>
-            <p>The mean profile takes <strong><?php echo $this->meta['mean'] ?> seconds</strong> to run the average method <?php echo number_format($this->meta['iterations']) ?> times.</p>
+            <p>The mean profile takes <strong><?php echo $this->meta['mean'] ?> seconds</strong> to run <?php echo number_format($this->meta['iterations']) ?> times.</p>
 
 
             <div class='page-header'>
@@ -73,5 +73,9 @@
                 </tbody>
             </table>
         </div>
+        <footer class='well'>
+            Made by <a href="http://twitter.com/makeusabrew">@makeusabrew</a>.
+            Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a>.
+        </footer>
     </body>
 </html>

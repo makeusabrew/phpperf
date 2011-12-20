@@ -13,4 +13,8 @@ class DateProfiles implements IProfile {
     public function profileDateWithSingleYear() {
         date("Y");
     }
+
+    public function profileDateWithAnotherTypicalString() {
+        date("l jS F Y");
+    }
 }
