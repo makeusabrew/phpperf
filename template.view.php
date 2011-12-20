@@ -4,7 +4,7 @@
         <title>PHP Performance Metrics</title>
         <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
         <style>
-            td.group {
+            tr.group th {
                 font-weight:bold;
                 background:#eee !important;
                 color:#000 !important;
@@ -15,12 +15,19 @@
                 padding:0;
                 font-size:70%;
             }
+
+            .well iframe {
+                width:190px !important;
+            }
         </style>
     </head>
     <body>
         <a href="<?php echo $this->url ?>../../../"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
         <div class=container>
             <div class='page-header'>
+                <div style='margin-top:11px;float:right'>
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-via="makeusabrew">Tweet</a>
+                </div>
                 <h1>PHP Performance Metrics</h1>
             </div>
 
@@ -62,17 +69,22 @@
 
             <table class="zebra-striped bordered-table">
                 <thead>
+                    <?php /*
                     <tr>
                         <th>&nbsp;</th>
                         <th>&times; <?php echo number_format($this->meta['iterations']) ?></th>
                         <th>1</th>
                         <th>Relative</th>
                     </tr>
+                    */ ?>
                 </thead>
                 <tbody>
                     <?php foreach($this->profiles as $profile): ?>
-                        <tr>
-                            <td class=group colspan=4><a href='<?php echo $this->url.$profile['filename'] ?>'><?php echo $profile['title'] ?></a></td>
+                        <tr class=group>
+                            <th><a href='<?php echo $this->url.$profile['filename'] ?>'><?php echo $profile['title'] ?></a></th>
+                            <th>&times; <?php echo number_format($this->meta['iterations']) ?></th>
+                            <th>1</th>
+                            <th>Relative</th>
                         </tr>
                         <?php foreach($profile['results'] as $stats): ?>
                             <tr>
@@ -98,8 +110,14 @@
 
         </div>
         <footer class='well container'>
+            <div style='float:right'>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-via="makeusabrew" data-size="large">Tweet</a>
+                <a href="https://twitter.com/makeusabrew" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @makeusabrew</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div>
             Made by <a href="http://twitter.com/makeusabrew">@makeusabrew</a>.
             Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a>.
+
         </footer>
     </body>
 </html>
