@@ -19,6 +19,10 @@
             averaged over <strong><?php echo $this->meta['repetitions'] ?></strong> repetitions.</p>
             <p>The mean profile time takes <strong><?php echo $this->meta['mean'] ?> seconds</strong> to run the average method <?php echo number_format($this->meta['iterations']) ?>.</p>
 
+            <h2>Units</h2>
+
+            <p><strong>&mu;s</strong> &ndash; microsecond. It takes roughly 350,000 of these for you to blink your eye.</p>
+
             <table class="zebra-striped bordered-table">
                 <thead>
                     <tr>

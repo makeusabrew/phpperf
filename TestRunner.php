@@ -54,6 +54,7 @@ class TestRunner {
                 $min = null;
                 $max = null;
                 $fn = $method->name;
+                ob_start();
                 for ($i = 0; $i < $repetitions; $i++) {
                     $start = microtime(true);
                     for ($j = 0; $j < $iterations; $j++) {
@@ -69,6 +70,7 @@ class TestRunner {
                     }
                     $totalDuration += $duration;
                 }
+                ob_end_clean();
                 $mean = bcdiv($totalDuration, $repetitions, 6);
                 $result = array(
                     'label'       => $label,
