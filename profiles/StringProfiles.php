@@ -60,6 +60,18 @@ class StringProfiles implements IProfile {
         implode(" ", array("foo", "bar", "baz", "test", "baz", "bar", "foo"));
     }
 
+    public function profileStrlen() {
+        strlen("some random arbitrary string here");
+    }
+
+    public function profileStrPadLeft() {
+        str_pad("TestStr", 20, STR_PAD_LEFT);
+    }
+
+    public function profileStrPadRight() {
+        str_pad("TestStr", 20);
+    }
+
     public function profileStrPosStartOfHaystack() {
         strpos("abcdefghijklmnopqrstuvwxyq", "a");
     }
@@ -74,9 +86,5 @@ class StringProfiles implements IProfile {
 
     public function profileStrReplace() {
         str_replace("foo", "bar", "foobarfoobar");
-    }
-
-    public function profileStrlen() {
-        strlen("some random arbitrary string here");
     }
 }
