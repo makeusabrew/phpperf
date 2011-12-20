@@ -2,10 +2,17 @@
 <html>
     <head>
         <title>PHP Performance Charts</title>
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
         <style>
             td.group {
                 font-weight:bold;
+                background:#eee !important;
+                color:#000 !important;
+            }
+            code {
+                background-color:inherit;
+                color:inherit;
+                padding:0;
             }
         </style>
     </head>
@@ -15,9 +22,9 @@
                 <h1>PHP Performance Metrics</h1>
             </div>
 
-            <p>Each test comprises of <strong>1,000</strong>
+            <p>Each test comprises of <strong>1,000</strong> method calls
             averaged over <strong>100</strong> repetitions.</p>
-            <p>The mean profile time takes <strong>0.011037 seconds</strong> to run the average method 1,000.</p>
+            <p>The mean profile time takes <strong>0.010896 seconds</strong> to run the average method 1,000 times.</p>
 
             <h2>Units</h2>
 
@@ -41,18 +48,18 @@
 <span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"Y-m-d&nbsp;H:i:s"</span><span style="color: #007700">);</span>
 </span>
 </code></td>
-                                <td>0.011608 s</td>
+                                <td>0.011851 s</td>
                                 <td>11 &mu;s</td>
-                                <td class='bad'>+5.17 &#37;</td>
+                                <td class='bad'>+8.76 &#37;</td>
                             </tr>
                                                     <tr>
                                 <td><code><span style="color: #000000">
 <span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"Y"</span><span style="color: #007700">);</span>
 </span>
 </code></td>
-                                <td>0.010746 s</td>
+                                <td>0.010717 s</td>
                                 <td>10 &mu;s</td>
-                                <td class='good'>-2.64 &#37;</td>
+                                <td class='good'>-1.64 &#37;</td>
                             </tr>
                                                                     <tr>
                             <td class=group colspan=4>PCRE methods</td>
@@ -62,36 +69,36 @@
 <span style="color: #0000BB">preg_match</span><span style="color: #007700">(</span><span style="color: #DD0000">"/^(.+)$/"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"test"</span><span style="color: #007700">);</span>
 </span>
 </code></td>
-                                <td>0.007981 s</td>
-                                <td>7 &mu;s</td>
-                                <td class='good'>-27.69 &#37;</td>
+                                <td>0.008399 s</td>
+                                <td>8 &mu;s</td>
+                                <td class='good'>-22.92 &#37;</td>
                             </tr>
                                                     <tr>
                                 <td><code><span style="color: #000000">
 <span style="color: #0000BB">preg_match</span><span style="color: #007700">(</span><span style="color: #DD0000">"/^(.+)$/"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"test"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$matches</span><span style="color: #007700">);</span>
 </span>
 </code></td>
-                                <td>0.009514 s</td>
-                                <td>9 &mu;s</td>
-                                <td class='good'>-13.8 &#37;</td>
+                                <td>0.010040 s</td>
+                                <td>10 &mu;s</td>
+                                <td class='good'>-7.86 &#37;</td>
                             </tr>
                                                     <tr>
                                 <td><code><span style="color: #000000">
 <span style="color: #0000BB">preg_match</span><span style="color: #007700">()&nbsp;</span><span style="color: #0000BB">with&nbsp;typical&nbsp;postcode</span>
 </span>
 </code></td>
-                                <td>0.009954 s</td>
-                                <td>9 &mu;s</td>
-                                <td class='good'>-9.81 &#37;</td>
+                                <td>0.010735 s</td>
+                                <td>10 &mu;s</td>
+                                <td class='good'>-1.48 &#37;</td>
                             </tr>
                                                     <tr>
                                 <td><code><span style="color: #000000">
 <span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">'/(\w+)&nbsp;(\d+),&nbsp;(\d+)/i'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'${1}1,$3'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'April&nbsp;15,&nbsp;2003'</span><span style="color: #007700">);</span>
 </span>
 </code></td>
-                                <td>0.009396 s</td>
+                                <td>0.009923 s</td>
                                 <td>9 &mu;s</td>
-                                <td class='good'>-14.87 &#37;</td>
+                                <td class='good'>-8.93 &#37;</td>
                             </tr>
                                                                     <tr>
                             <td class=group colspan=4>String functions</td>
@@ -101,54 +108,90 @@
 <span style="color: #0000BB"></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"foo&nbsp;bar&nbsp;baz&nbsp;test"</span><span style="color: #007700">;</span>
 </span>
 </code></td>
-                                <td>0.003900 s</td>
+                                <td>0.003971 s</td>
                                 <td>3 &mu;s</td>
-                                <td class='good'>-64.66 &#37;</td>
+                                <td class='good'>-63.56 &#37;</td>
                             </tr>
                                                     <tr>
                                 <td><code><span style="color: #000000">
 <span style="color: #0000BB"></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">with&nbsp;large&nbsp;string&nbsp;</span><span style="color: #007700">(~</span><span style="color: #0000BB">520&nbsp;chars</span><span style="color: #007700">)</span>
 </span>
 </code></td>
-                                <td>0.008151 s</td>
+                                <td>0.008260 s</td>
                                 <td>8 &mu;s</td>
-                                <td class='good'>-26.15 &#37;</td>
+                                <td class='good'>-24.19 &#37;</td>
                             </tr>
                                                     <tr>
                                 <td><code><span style="color: #000000">
 <span style="color: #0000BB">explode</span><span style="color: #007700">(</span><span style="color: #DD0000">"&nbsp;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"foo&nbsp;bar&nbsp;baz&nbsp;test&nbsp;baz&nbsp;bar&nbsp;foo"</span><span style="color: #007700">);</span>
 </span>
 </code></td>
-                                <td>0.009706 s</td>
+                                <td>0.009856 s</td>
                                 <td>9 &mu;s</td>
-                                <td class='good'>-12.06 &#37;</td>
+                                <td class='good'>-9.54 &#37;</td>
                             </tr>
                                                     <tr>
                                 <td><code><span style="color: #000000">
 <span style="color: #0000BB">explode</span><span style="color: #007700">()&nbsp;</span><span style="color: #0000BB">on&nbsp;space&nbsp;with&nbsp;large&nbsp;input&nbsp;string</span>
 </span>
 </code></td>
-                                <td>0.033211 s</td>
+                                <td>0.033081 s</td>
                                 <td>33 &mu;s</td>
-                                <td class='bad'>+200.91 &#37;</td>
+                                <td class='bad'>+203.61 &#37;</td>
+                            </tr>
+                                                    <tr>
+                                <td><code><span style="color: #000000">
+<span style="color: #0000BB">htmlentities</span><span style="color: #007700">(</span><span style="color: #DD0000">"this&nbsp;'is'&nbsp;a&nbsp;&lt;strong&gt;test&lt;/strong&gt;&nbsp;&lt;div&gt;\"string!?\"&lt;/div&gt;"</span><span style="color: #007700">);</span>
+</span>
+</code></td>
+                                <td>0.011523 s</td>
+                                <td>11 &mu;s</td>
+                                <td class='bad'>+5.75 &#37;</td>
+                            </tr>
+                                                    <tr>
+                                <td><code><span style="color: #000000">
+<span style="color: #0000BB">htmlentities</span><span style="color: #007700">(</span><span style="color: #DD0000">"this&nbsp;'is'&nbsp;a&nbsp;&lt;strong&gt;test&lt;/strong&gt;&nbsp;&lt;div&gt;\"string!?\"&lt;/div&gt;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">ENT_QUOTES</span><span style="color: #007700">);</span>
+</span>
+</code></td>
+                                <td>0.011770 s</td>
+                                <td>11 &mu;s</td>
+                                <td class='bad'>+8.02 &#37;</td>
+                            </tr>
+                                                    <tr>
+                                <td><code><span style="color: #000000">
+<span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #DD0000">"this&nbsp;'is'&nbsp;a&nbsp;&lt;strong&gt;test&lt;/strong&gt;&nbsp;&lt;div&gt;\"string!?\"&lt;/div&gt;"</span><span style="color: #007700">);</span>
+</span>
+</code></td>
+                                <td>0.008068 s</td>
+                                <td>8 &mu;s</td>
+                                <td class='good'>-25.95 &#37;</td>
+                            </tr>
+                                                    <tr>
+                                <td><code><span style="color: #000000">
+<span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #DD0000">"this&nbsp;'is'&nbsp;a&nbsp;&lt;strong&gt;test&lt;/strong&gt;&nbsp;&lt;div&gt;\"string!?\"&lt;/div&gt;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">ENT_QUOTES</span><span style="color: #007700">);</span>
+</span>
+</code></td>
+                                <td>0.008228 s</td>
+                                <td>8 &mu;s</td>
+                                <td class='good'>-24.49 &#37;</td>
                             </tr>
                                                     <tr>
                                 <td><code><span style="color: #000000">
 <span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">"&nbsp;"</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"bar"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"baz"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"test"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"baz"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"bar"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">));</span>
 </span>
 </code></td>
-                                <td>0.010738 s</td>
+                                <td>0.010558 s</td>
                                 <td>10 &mu;s</td>
-                                <td class='good'>-2.71 &#37;</td>
+                                <td class='good'>-3.1 &#37;</td>
                             </tr>
                                                     <tr>
                                 <td><code><span style="color: #000000">
 <span style="color: #0000BB">str_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"bar"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"foobarfoobar"</span><span style="color: #007700">);</span>
 </span>
 </code></td>
-                                <td>0.007542 s</td>
+                                <td>0.007360 s</td>
                                 <td>7 &mu;s</td>
-                                <td class='good'>-31.67 &#37;</td>
+                                <td class='good'>-32.45 &#37;</td>
                             </tr>
                                                             </tbody>
             </table>
