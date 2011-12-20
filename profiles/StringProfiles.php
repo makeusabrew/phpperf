@@ -1,6 +1,19 @@
 <?php
 
 class StringProfiles implements IProfile {
+    
+    public function __construct() {
+        $this->largeStr =
+           "foo bar baz test foo foo foo test foo bar baztestfootest foo bar ".
+           "foo bar baz test foo foo foo test foo bar baztestfootest foo bar ".
+           "foo bar baz test foo foo foo test foo bar baztestfootest foo bar ".
+           "foo bar baz test foo foo foo test foo bar baztestfootest foo bar ".
+           "foo bar baz test foo foo foo test foo bar baztestfootest foo bar ".
+           "foo bar baz test foo foo foo test foo bar baztestfootest foo bar ".
+           "foo bar baz test foo foo foo test foo bar baztestfootest foo bar ".
+           "foo bar baz test foo foo foo test foo bar baztestfootest foo bar ";
+    }
+
     public function getTitle() {
         return "String functions";
     }
@@ -32,12 +45,7 @@ class StringProfiles implements IProfile {
      * @label explode() on space with large input string
      */
     public function profileExplodeLargeString() {
-        $str = "foo bar baz test foo foo foo test foo bar baztestfootest foo bar ".
-               "foo bar baz test foo foo foo test foo bar baztestfootest foo bar ".
-               "foo bar baz test foo foo foo test foo bar baztestfootest foo bar ".
-               "foo bar baz test foo foo foo test foo bar baztestfootest foo bar ".
-               "foo bar baz test foo foo foo test foo bar baztestfootest foo bar ";
-        explode(" ", $str);
+        explode(" ", $this->largeStr);
     }
 
     public function profileHtmlEntities() {
@@ -58,6 +66,28 @@ class StringProfiles implements IProfile {
 
     public function profileImplodeSmallArray() {
         implode(" ", array("foo", "bar", "baz", "test", "baz", "bar", "foo"));
+    }
+
+    public function profileMd5() {
+        md5("abcdefghijklmnopqrstuvwxyz");
+    }
+
+    /**
+     * @label md5() with ~520 char string
+     */
+    public function profileMd5LargeStr() {
+        md5($this->largeStr);
+    }
+
+    public function profileSha1() {
+        sha1("abcdefghijklmnopqrstuvwxyz");
+    }
+
+    /**
+     * @label sha1() with ~520 char string
+     */
+    public function profileSha1LargeStr() {
+        sha1($this->largeStr);
     }
 
     public function profileStrlen() {
@@ -86,5 +116,16 @@ class StringProfiles implements IProfile {
 
     public function profileStrReplace() {
         str_replace("foo", "bar", "foobarfoobar");
+    }
+
+    public function profileStrShuffleMediumString() {
+        str_shuffle("abcdefghijklmnopqrstuvwxyz");
+    }
+
+    /**
+     * @label str_shuffle() with a large (~520 char) string
+     */
+    public function profileStrShuffleLargeString() {
+        str_shuffle($this->largeStr);
     }
 }
