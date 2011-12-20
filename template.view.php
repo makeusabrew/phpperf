@@ -18,6 +18,7 @@
         </style>
     </head>
     <body>
+        <a href="<?php echo $this->url ?>../../../"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
         <div class=container>
             <div class='page-header'>
                 <h1>PHP Performance Metrics</h1>
@@ -25,11 +26,26 @@
 
             <p>Each test comprises of <strong><?php echo number_format($this->meta['iterations']) ?></strong> method calls
             averaged over <strong><?php echo $this->meta['repetitions'] ?></strong> repetitions.</p>
-            <p>The mean profile time takes <strong><?php echo $this->meta['mean'] ?> seconds</strong> to run the average method <?php echo number_format($this->meta['iterations']) ?> times.</p>
+            <p>The mean profile takes <strong><?php echo $this->meta['mean'] ?> seconds</strong> to run the average method <?php echo number_format($this->meta['iterations']) ?> times.</p>
 
-            <h2>Units</h2>
 
-            <p><strong>&mu;s</strong> &ndash; microsecond. It takes roughly 350,000 of these for you to blink your eye.</p>
+            <div class='page-header'>
+                <h2>Results</h2>
+            </div>
+
+            <p>The results table below shows methods loosely grouped by type and usage. The column representing a <em>single</em>
+            method call is derived solely from dividing the mean value by the number of iterations, so it is approximate.
+            The relative column shows the cost of the method Vs the average across all profiled functions.</p>
+
+            <p>You can click on any group's heading to view the profile class as a whole, or you can click on each
+            individual method to be taken to the source code behind each profile &ndash; particularly useful
+            if the profile label is a summary rather than actual code.</p>
+
+            <div class='page-header'>
+                <h2>Units</h2>
+            </div>
+
+            <p><strong>&mu;s</strong> &ndash; microsecond. It takes roughly 350,000 of these to blink your eye.</p>
 
             <table class="zebra-striped bordered-table">
                 <thead>
