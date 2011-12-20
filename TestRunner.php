@@ -21,32 +21,43 @@ class TestRunner {
     }
 
     public function run() {
+        $classMean = 0;
+        $classProfiles = 0;
         foreach ($this->classes as $class) {
+            $reflection = new ReflectionClass($class);
+            $classLines = file($reflection->getFileName());
+
             $instance = new $class();
-            $meta = $instance->getMethods();
             $title = $instance->getTitle();
 
             $this->writeLine("Profiling ".$class);
             $this->results[$title] = array();
 
-            $methods = get_class_methods($instance);
+            $methods = $reflection->getMethods();
 
             $k = 0;
+
             foreach ($methods as $method) {
-                if (strpos($method, "profile") !== 0) {
+                if (strpos($method->name, "profile") !== 0) {
                     continue;
                 }
-                $this->writeLine("Method: ".$method);
-                $label = isset($meta[$method]['label']) ? $meta[$method]['label'] : $method;
+                $this->writeLine("Method: ".$method->name);
+                $label = $this->getLabel($method);
+                if (!$label) {
+                    $startLine = $method->getStartLine();
+                    $endLine   = $method->getEndLine();
+                    $label = trim($classLines[$startLine]);
+                }
                 $repetitions = static::REPETITIONS;
                 $iterations = static::ITERATIONS;
                 $totalDuration = 0;
                 $min = null;
                 $max = null;
+                $fn = $method->name;
                 for ($i = 0; $i < $repetitions; $i++) {
                     $start = microtime(true);
                     for ($j = 0; $j < $iterations; $j++) {
-                        $instance->$method();
+                        $instance->$fn();
                     }
                     $end = microtime(true);
                     $duration = $end - $start;
@@ -58,21 +69,49 @@ class TestRunner {
                     }
                     $totalDuration += $duration;
                 }
+                $mean = bcdiv($totalDuration, $repetitions, 6);
                 $result = array(
                     'label'       => $label,
-                    'iterations'  => $iterations,
-                    'repetitions' => $repetitions,
-                    'mean'        => bcdiv($totalDuration, $repetitions, 6),
+                    'mean'        => $mean,
                     'single'      => bcdiv(($totalDuration / $repetitions), $iterations, 6),
                     'min'         => $min,
                     'max'         => $max,
                 );
                 $this->results[$title][$k] = $result;
                 $k++;
+                $classMean += $mean;
+                $classProfiles ++;
             }
         }
 
-        $this->write(json_encode($this->results));
+        $classMean = bcdiv($classMean, $classProfiles, 6);
+        foreach ($this->results as $title => $results) {
+            $k = 0;
+            foreach($results as $stats) {
+                $stats['pc'] = (($stats['mean'] / $classMean) * 100) - 100;
+                $this->results[$title][$k] = $stats;
+                $k++;
+            }
+        }
+
+        $this->write(json_encode(array(
+            'meta' => array(
+                'iterations' => self::ITERATIONS,
+                'repetitions' => self::REPETITIONS,
+                'mean' => $classMean,
+            ),
+            'results' => $this->results,
+        )));
+    }
+
+    protected function getLabel($method) {
+        $docComment = $method->getDocComment();
+        if ($docComment) {
+            if (preg_match("/@label\s(.+)/", $docComment, $matches)) {
+                return $matches[1];
+            }
+        }
+        return false;
     }
 }
 
