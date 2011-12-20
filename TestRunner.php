@@ -4,7 +4,7 @@ include("DateProfiles.php");
 include("PregMatchProfiles.php");
 class TestRunner {
     const ITERATIONS = 10000;
-    const REPETITIONS = 100;
+    const REPETITIONS = 50;
 
     protected $results = array();
 
