@@ -1,6 +1,10 @@
 <?php
 
 class PregMatchProfiles implements IProfile {
+    public function getTitle() {
+        return "PCRE methods";
+    }
+
     public function getMethods() {
         return array();
     }

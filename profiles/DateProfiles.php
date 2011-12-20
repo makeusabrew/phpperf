@@ -2,6 +2,10 @@
 
 class DateProfiles implements IProfile {
 
+    public function getTitle() {
+        return "date() methods";
+    }
+
     public function getMethods() {
         return array(
             'profileDateWithTypicalString' => array(

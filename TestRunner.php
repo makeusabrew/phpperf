@@ -22,18 +22,22 @@ class TestRunner {
 
     public function run() {
         foreach ($this->classes as $class) {
-            $this->writeLine("Profiling ".$class);
-            $this->results[$class] = array();
-
             $instance = new $class();
+            $meta = $instance->getMethods();
+            $title = $instance->getTitle();
+
+            $this->writeLine("Profiling ".$class);
+            $this->results[$title] = array();
+
             $methods = get_class_methods($instance);
 
+            $k = 0;
             foreach ($methods as $method) {
                 if (strpos($method, "profile") !== 0) {
                     continue;
                 }
                 $this->writeLine("Method: ".$method);
-                $this->results[$class][$method] = array();
+                $label = isset($meta[$method]['label']) ? $meta[$method]['label'] : $method;
                 $repetitions = static::REPETITIONS;
                 $iterations = static::ITERATIONS;
                 $totalDuration = 0;
@@ -54,12 +58,17 @@ class TestRunner {
                     }
                     $totalDuration += $duration;
                 }
-                $this->results[$class][$method]['iterations'] = $iterations;
-                $this->results[$class][$method]['repetitions'] = $repetitions;
-                $this->results[$class][$method]['mean'] = bcdiv($totalDuration, $repetitions, 6);
-                $this->results[$class][$method]['single'] = bcdiv(($totalDuration / $repetitions), $iterations, 6);
-                $this->results[$class][$method]['min'] = $min;
-                $this->results[$class][$method]['max'] = $max;
+                $result = array(
+                    'label'       => $label,
+                    'iterations'  => $iterations,
+                    'repetitions' => $repetitions,
+                    'mean'        => bcdiv($totalDuration, $repetitions, 6),
+                    'single'      => bcdiv(($totalDuration / $repetitions), $iterations, 6),
+                    'min'         => $min,
+                    'max'         => $max,
+                );
+                $this->results[$title][$k] = $result;
+                $k++;
             }
         }
 
