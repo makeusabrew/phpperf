@@ -16,7 +16,7 @@ class HtmlReporter {
     }
 
     protected function microformat($value) {
-        return (($value * 1000000))." &mu;s";
+        return (($value * 1000000))."&mu;s";
     }
 
     protected function render($tpl, $vars) {

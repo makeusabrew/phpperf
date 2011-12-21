@@ -5,6 +5,11 @@
         <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
         <meta name="google-site-verification" content="25AfGx-XF6ikgholPhv2GQ5sTxLz0gk13Eklidw3bds" />
         <style>
+            table tr td,
+            table tr th {
+                font-size:85%;
+            }
+
             tr.group th {
                 font-weight:bold;
                 background:#eee !important;
@@ -14,7 +19,7 @@
                 background-color:inherit;
                 color:inherit;
                 padding:0;
-                font-size:70%;
+                font-family:"Inconsolata", "Monaco", "Consolas", "Courier New", Courier, monospace;
             }
 
             .well iframe {
@@ -66,7 +71,6 @@
 
             <ul>
                 <li><strong>&mu;s</strong> &ndash; <a href="http://en.wikipedia.org/wiki/Microsecond">microseconds</a>, equivalent to 0.001 milliseconds. It takes roughly 350,000 of these to blink your eye</li>
-                <li><strong>ms</strong> &ndash; <a href="http://en.wikipedia.org/wiki/Millisecond">milliseconds</a></li>
                 <li><strong>s</strong> &ndash; the humble <a href="http://en.wikipedia.org/wiki/Second">second</a>.</li>
             </ul>
 
@@ -102,21 +106,40 @@
                             <th><a href='<?php echo $this->url.'tree/master/profiles/'.$profile['filename'] ?>'><?php echo $profile['title'] ?></a></th>
                             <th>&times; <?php echo number_format($this->meta['iterations']) ?></th>
                             <th>&times; 1</th>
-                            <th>Rel. (Group)</th>
-                            <th>Rel. (Suite)</th>
+                            <th>Group</th>
+                            <th>Suite</th>
                         </tr>
                         <?php foreach($profile['results'] as $stats): ?>
                             <tr>
                                 <td><a href='<?php echo $this->url.'tree/master/profiles/'.$profile['filename'] ?>#L<?php echo $stats['startLine'] ?>'><?php echo $this->highlight($stats['label']) ?></a></td>
-                                <td><?php echo $stats['mean'] ?> s</td>
+                                <td><?php echo $stats['mean'] ?>s</td>
                                 <td><?php echo $this->microformat($stats['single']) ?></td>
-                                <td class='<?php echo ($stats['pc_group'] < 0) ? 'good' : 'bad' ?>'><?php if ($stats['pc_group'] > 0):?>+<?php endif; ?><?php echo round($stats['pc_group'], 2) ?> &#37;</td>
-                                <td class='<?php echo ($stats['pc_suite'] < 0) ? 'good' : 'bad' ?>'><?php if ($stats['pc_suite'] > 0):?>+<?php endif; ?><?php echo round($stats['pc_suite'], 2) ?> &#37;</td>
+                                <td class='<?php echo ($stats['pc_group'] < 0) ? 'good' : 'bad' ?>'><?php if ($stats['pc_group'] > 0):?>+<?php endif; ?><?php echo round($stats['pc_group'], 2) ?>&#37;</td>
+                                <td class='<?php echo ($stats['pc_suite'] < 0) ? 'good' : 'bad' ?>'><?php if ($stats['pc_suite'] > 0):?>+<?php endif; ?><?php echo round($stats['pc_suite'], 2) ?>&#37;</td>
                             </tr>
                         <?php endforeach; ?>
                     <?php endforeach; ?>
                 </tbody>
             </table>
+
+            <div class='page-header'>
+                <h2>About phpperf</h2>
+            </div>
+            <p>The main goal of this project is to illustrate the relative costs of commonly used low-level PHP methods, and to try and give some sort
+            of baseline as to how long these methods can take in isolation. All too often you'll hear methods being dismissed as &ldquo;expensive&rdquo;
+            without any form of empirical evidence either way, and similarly you'll hear PHP bemoaned as being &ldquo;slow&rdquo; &ndash; but
+            of course both these terms are relative. Sure, PHP might be slow compared to other languages, but this can quickly be blown
+            out of proportion and lead people to assume it's actually <em>slow</em>, and that a smattering of functions will bring your application to
+            its knees. These tests simply exist to give some grounding and points-of-reference to these sorts of conversations.</p>
+
+            <div class='page-header'>
+                <h2>Disclaimer</h2>
+            </div>
+            <p>These tests don't run in a vacuum &ndash; inevitably no two runs will yield the same results, and even then only serve
+            as a rough baseline based on the machine I run them on &ndash; your results may differe significantly. The mechanism used to
+            run and time the tests probably isn't the most scientific either, so if you've got a suggestion then
+            please do <a href="<?php echo $this->url ?>">fork the project</a> &ndash; any improvements are welcome!</p>
+
             <div class='page-header'>
                 <h2>Contributing</h2>
             </div>
