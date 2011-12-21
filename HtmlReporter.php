@@ -7,7 +7,7 @@ class HtmlReporter {
         echo $this->render("template.view.php", array(
             'profiles' => $data['profiles'],
             'meta' => $data['meta'],
-            'url' => 'https://github.com/makeusabrew/phpperf/tree/master/profiles/',
+            'url' => 'https://github.com/makeusabrew/phpperf/',
         ));
     }
 
@@ -16,7 +16,7 @@ class HtmlReporter {
     }
 
     protected function microformat($value) {
-        return round(($value * 1000000), 3)." &mu;s";
+        return (($value * 1000000))." &mu;s";
     }
 
     protected function render($tpl, $vars) {

@@ -93,7 +93,23 @@ class TestRunner {
                 $results[] = $result;
                 $suiteMean += $mean;
                 $suiteProfiles ++;
-                $suiteMedian[] = $rawMean;
+                $suiteMedian[] = $mean;
+            }
+
+            /*
+            $groupMedian = array();
+            foreach ($results as $result) {
+                $groupMedian[] = $result['mean'];
+            }
+            */
+            
+            $groupMedian = $this->getMedian(array_map(function($v) {
+                return $v['mean'];
+            }, $results));
+
+            foreach($results as $i => $result) {
+                $result['pc_group'] = (($result['mean'] / $groupMedian) * 100) - 100;
+                $results[$i] = $result;
             }
 
             $this->profiles[] = array(
@@ -103,23 +119,13 @@ class TestRunner {
             );
         }
 
-        sort($suiteMedian);
-        if (count($suiteMedian) % 2 == 0) {
-            // even, take middle two
-            $top = count($suiteMedian) / 2;
-            $bottom = $top - 1;
-
-            $suiteMedian = ($suiteMedian[$bottom] + $suiteMedian[$top]) / 2.0;
-        } else {
-            $idx = floor(count($suiteMedian) / 2);
-            $suiteMedian = $suiteMedian[$idx];
-        }
+        $suiteMedian = $this->getMedian($suiteMedian);
 
         $suiteMean = bcdiv($suiteMean, $suiteProfiles, 6);
 
         foreach ($this->profiles as $i => $profiles) {
             foreach($profiles['results'] as $j => $stats) {
-                $stats['pc'] = (($stats['mean'] / $suiteMedian) * 100) - 100;
+                $stats['pc_suite'] = (($stats['mean'] / $suiteMedian) * 100) - 100;
                 $this->profiles[$i]['results'][$j] = $stats;
             }
         }
@@ -143,6 +149,21 @@ class TestRunner {
             }
         }
         return false;
+    }
+
+    protected function getMedian($values) {
+        sort($values);
+        if (count($values) % 2 == 0) {
+            // even, take an average of the middle two
+            $top = count($values) / 2;
+            $bottom = $top - 1;
+
+            $median = bcdiv($values[$bottom] + $values[$top], 2, 6);
+        } else {
+            $idx = floor(count($values) / 2);
+            $median = $values[$idx];
+        }
+        return $median;
     }
 }
 

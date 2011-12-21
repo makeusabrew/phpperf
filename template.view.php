@@ -3,6 +3,7 @@
     <head>
         <title>PHP Performance Metrics</title>
         <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+        <meta name="google-site-verification" content="25AfGx-XF6ikgholPhv2GQ5sTxLz0gk13Eklidw3bds" />
         <style>
             tr.group th {
                 font-weight:bold;
@@ -37,7 +38,7 @@
         </script>
     </head>
     <body>
-        <a href="<?php echo $this->url ?>../../../"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+        <a href="<?php echo $this->url ?>"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
         <div class=container>
             <div class='page-header'>
                 <div style='margin-top:11px;float:right'>
@@ -48,7 +49,7 @@
 
             <p>The table below shows methods loosely grouped by type and usage. The column representing a <em>single</em>
             method call is derived solely from dividing the mean value by the number of iterations, so it is approximate.
-            The relative column shows the cost of the method Vs the <strong>median</strong> across all profiled functions.</p>
+            The relative column shows the cost of the method Vs the <strong>median</strong> across both the group and suite of profiled functions.</p>
 
             <p>You can click on any group's heading to view the profile class as a whole, or you can click on each
             individual method to be taken to the source code behind each profile &ndash; particularly useful
@@ -97,28 +98,30 @@
                 <tbody>
                     <?php foreach($this->profiles as $profile): ?>
                         <tr class=group>
-                            <th><a href='<?php echo $this->url.$profile['filename'] ?>'><?php echo $profile['title'] ?></a></th>
+                            <th><a href='<?php echo $this->url.'tree/master/profiles/'.$profile['filename'] ?>'><?php echo $profile['title'] ?></a></th>
                             <th>&times; <?php echo number_format($this->meta['iterations']) ?></th>
                             <th>&times; 1</th>
-                            <th>Relative</th>
+                            <th>Rel. (Group)</th>
+                            <th>Rel. (Suite)</th>
                         </tr>
                         <?php foreach($profile['results'] as $stats): ?>
                             <tr>
-                                <td><a href='<?php echo $this->url.$profile['filename'] ?>#L<?php echo $stats['startLine'] ?>'><?php echo $this->highlight($stats['label']) ?></a></td>
+                                <td><a href='<?php echo $this->url.'tree/master/profiles/'.$profile['filename'] ?>#L<?php echo $stats['startLine'] ?>'><?php echo $this->highlight($stats['label']) ?></a></td>
                                 <td><?php echo $stats['mean'] ?> s</td>
                                 <td><?php echo $this->microformat($stats['single']) ?></td>
-                                <td class='<?php echo ($stats['pc'] < 0) ? 'good' : 'bad' ?>'><?php if ($stats['pc'] > 0):?>+<?php endif; ?><?php echo round($stats['pc'], 2) ?> &#37;</td>
+                                <td class='<?php echo ($stats['pc_group'] < 0) ? 'good' : 'bad' ?>'><?php if ($stats['pc_group'] > 0):?>+<?php endif; ?><?php echo round($stats['pc_group'], 2) ?> &#37;</td>
+                                <td class='<?php echo ($stats['pc_suite'] < 0) ? 'good' : 'bad' ?>'><?php if ($stats['pc_suite'] > 0):?>+<?php endif; ?><?php echo round($stats['pc_suite'], 2) ?> &#37;</td>
                             </tr>
                         <?php endforeach; ?>
                     <?php endforeach; ?>
                 </tbody>
             </table>
             <div class='page-header'>
-                <h2>Contributors</h2>
+                <h2>Contributing</h2>
             </div>
 
             <p><b>phpperf</b> needs you! There are <em>loads</em> of methods and common use-cases not yet profiled.
-            Please see the <a href='<?php echo $this->url ?>../../../#readme'>readme</a> file for how to add your own tests (it's quick &amp; easy!).
+            Please see the <a href='<?php echo $this->url ?>#readme'>readme</a> file for how to add your own profiles (it's quick &amp; easy!).
             Every contributor will be listed here in the order they first helped out with the project. Think of the fame!</p>
             <ul>
                 <li><a href="http://twitter.com/makeusabrew">@makeusabrew</a> (author)</li>
@@ -133,7 +136,6 @@
             </div>
             Made by <a href="http://twitter.com/makeusabrew">@makeusabrew</a>.
             Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a>.
-
         </footer>
     </body>
 </html>
