@@ -101,7 +101,7 @@
                         </tr>
                         <?php foreach($profile['results'] as $stats): ?>
                             <tr>
-                                <td><a href='<?php echo $this->url.'tree/master/profiles/'.$profile['filename'] ?>#L<?php echo $stats['startLine'] ?>'><?php echo $this->highlight($stats['label']) ?></a></td>
+                                <td><a href='<?php echo $this->url.'tree/master/profiles/'.$profile['filename'] ?>#L<?php echo $stats['startLine'] ?>'><?php echo $this->highlight($stats['label']) ?><?php if (isset($stats['alias'])): ?><span class='alias'>*</span><?php endif; ?></a></td>
                                 <td><?php echo $stats['mean'] ?> s</td>
                                 <td><?php echo $this->microformat($stats['single']) ?></td>
                                 <td class='<?php echo ($stats['pc_group'] < 0) ? 'good' : 'bad' ?>'><?php if ($stats['pc_group'] > 0):?>+<?php endif; ?><?php echo round($stats['pc_group'], 2) ?>&#37;</td>
@@ -128,7 +128,7 @@
             </div>
 
             <p>These tests don't run in a vacuum &ndash; inevitably no two runs will yield the same results, and even then only serve
-            as a rough baseline based on the machine I run them on &ndash; your results may differe significantly. The mechanism used to
+            as a rough baseline based on the machine I run them on &ndash; your results may differ significantly. The mechanism used to
             run and time the tests probably isn't the most scientific either, so if you've got a suggestion then
             please do <a href="<?php echo $this->url ?>">fork the project</a> &ndash; any improvements are welcome!</p>
 
