@@ -1,5 +1,7 @@
 #phpperf
 
+PHP Performance Metrics for low-level PHP methods.
+
 ## Contributing
 
 ### Adding a profile to an existing group
@@ -43,3 +45,27 @@ public function profileStrlenWithHugeString() {
 2. Add a unique class - the only rule is that it *must* implement the ```IProfile``` interface
 3. This interface only requires that you implement one method: ```getTitle()``` - this provides the profile group name
 4. Follow the instructions above until you're all done!
+
+## Running your own benchmark
+
+If you've added new profiles or an entire group of profiles, you'll want to run a benchmark to make sure everything
+looks in order before submitting a pull request. The benchmarking tools are actually split into separate parts -
+a Test Runner and an HTML Reporter, but by chaining these together you'll get the desired results:
+
+```you@desktop:~/code/web/phpperf$ ./TestRunner.php | ./HtmlReporter.php > results.html ```
+
+Simply open ```results.html``` in a web browser and check your profiles are rendered as expected.
+
+## Pull Requests
+
+Please do *not* submit a pull request to the gh-pages branch with your own results.html page. The goal of the project
+is not to collect distributed performance benchmarks, but to provide a baseline for which some sense of relative
+and absolute performance can be guaged. Of course, you're welcome to publish and share your own results, but contributions
+to this project are far better served by either:
+
+1. Improving the benchmark logic (better accuracy, more comparisons, more functionality)
+2. Adding more profiles
+
+## License
+
+Apache 2.0
