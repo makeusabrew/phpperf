@@ -20,6 +20,21 @@
                 width:190px !important;
             }
         </style>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-20517424-7']);
+          _gaq.push(['_setDomainName', 'phpperf.com']);
+          _gaq.push(['_setAllowLinker', true]);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
     </head>
     <body>
         <a href="<?php echo $this->url ?>../../../"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
@@ -31,9 +46,9 @@
                 <h1>PHP Performance Metrics</h1>
             </div>
 
-            <p>The results table below shows methods loosely grouped by type and usage. The column representing a <em>single</em>
+            <p>The table below shows methods loosely grouped by type and usage. The column representing a <em>single</em>
             method call is derived solely from dividing the mean value by the number of iterations, so it is approximate.
-            The relative column shows the cost of the method Vs the average across all profiled functions.</p>
+            The relative column shows the cost of the method Vs the <strong>median</strong> across all profiled functions.</p>
 
             <p>You can click on any group's heading to view the profile class as a whole, or you can click on each
             individual method to be taken to the source code behind each profile &ndash; particularly useful
@@ -46,9 +61,9 @@
 
             <p>Each test comprises of <strong><?php echo number_format($this->meta['iterations']) ?></strong> method calls
             averaged over <strong><?php echo $this->meta['repetitions'] ?></strong> repetitions.</p>
-            <p>The mean profile takes <strong><?php echo $this->meta['mean'] ?> seconds</strong> to run <?php echo number_format($this->meta['iterations']) ?> times.</p>
+            <p>The median profile takes <strong><?php echo $this->meta['median'] ?> seconds</strong> to run <?php echo number_format($this->meta['iterations']) ?> times.</p>
             <ul>
-                <li><strong>&mu;s</strong> &ndash; <a href="http://en.wikipedia.org/wiki/Microsecond">microseconds</a>. It takes roughly 350,000 of these to blink your eye</li>
+                <li><strong>&mu;s</strong> &ndash; <a href="http://en.wikipedia.org/wiki/Microsecond">microseconds</a>, equivalent to 0.001 milliseconds. It takes roughly 350,000 of these to blink your eye</li>
                 <li><strong>ms</strong> &ndash; <a href="http://en.wikipedia.org/wiki/Millisecond">milliseconds</a></li>
                 <li><strong>s</strong> &ndash; the humble <a href="http://en.wikipedia.org/wiki/Second">second</a>.</li>
             </ul>
@@ -58,10 +73,11 @@
             </div>
 
             <p>All of these tests are compiled using the same machine each time. Inevitably, each
-            run may vary, but the differences should be slight and the relative performance should be consistent.</p>
+            run may vary, but the differences should be slight and the relative performance should be fairly consistent.</p>
             <ul>
                 <li>AMD Athlon(tm) 64 X2 Dual Core Processor 4200+ (2.2 GHz)</li>
                 <li>3Gb RAM</li>
+                <li>Ubuntu 11.10 Desktop Edition</li>
                 <li>PHP <?php echo phpversion() ?></li>
             </ul>
 
@@ -83,7 +99,7 @@
                         <tr class=group>
                             <th><a href='<?php echo $this->url.$profile['filename'] ?>'><?php echo $profile['title'] ?></a></th>
                             <th>&times; <?php echo number_format($this->meta['iterations']) ?></th>
-                            <th>1</th>
+                            <th>&times; 1</th>
                             <th>Relative</th>
                         </tr>
                         <?php foreach($profile['results'] as $stats): ?>
