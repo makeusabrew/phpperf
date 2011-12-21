@@ -7,7 +7,7 @@
         <style>
             table tr td,
             table tr th {
-                font-size:85%;
+                /*font-size:85%;*/
             }
 
             tr.group th {
@@ -20,6 +20,7 @@
                 color:inherit;
                 padding:0;
                 font-family:"Inconsolata", "Monaco", "Consolas", "Courier New", Courier, monospace;
+                font-size:85%;
             }
 
             .well iframe {
@@ -123,8 +124,9 @@
             </table>
 
             <div class='page-header'>
-                <h2>About phpperf</h2>
+                <h2>About phpperf.com</h2>
             </div>
+
             <p>The main goal of this project is to illustrate the relative costs of commonly used low-level PHP methods, and to try and give some sort
             of baseline as to how long these methods can take in isolation. All too often you'll hear methods being dismissed as &ldquo;expensive&rdquo;
             without any form of empirical evidence either way, and similarly you'll hear PHP bemoaned as being &ldquo;slow&rdquo; &ndash; but
@@ -135,6 +137,7 @@
             <div class='page-header'>
                 <h2>Disclaimer</h2>
             </div>
+
             <p>These tests don't run in a vacuum &ndash; inevitably no two runs will yield the same results, and even then only serve
             as a rough baseline based on the machine I run them on &ndash; your results may differe significantly. The mechanism used to
             run and time the tests probably isn't the most scientific either, so if you've got a suggestion then

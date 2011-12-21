@@ -52,6 +52,9 @@ class StringProfiles implements IProfile {
         htmlentities("this 'is' a <strong>test</strong> <div>\"string!?\"</div>");
     }
 
+    /**
+     * @label htmlentities() with ENT_QUOTES flag
+     */
     public function profileHtmlEntitiesQuotes() {
         htmlentities("this 'is' a <strong>test</strong> <div>\"string!?\"</div>", ENT_QUOTES);
     }
@@ -60,6 +63,9 @@ class StringProfiles implements IProfile {
         htmlspecialchars("this 'is' a <strong>test</strong> <div>\"string!?\"</div>");
     }
 
+    /**
+     * @label htmlspecialchars() with ENT_QUOTES flag
+     */
     public function profileHtmlSpecialCharsQuotes() {
         htmlspecialchars("this 'is' a <strong>test</strong> <div>\"string!?\"</div>", ENT_QUOTES);
     }
