@@ -58,7 +58,7 @@
 
             <p>Each test comprises of <strong>1,000</strong> method calls
             averaged over <strong>100</strong> repetitions.</p>
-            <p>The median profile takes <strong>0.003179 seconds</strong> to run 1,000            times. This value is used to calculate the relative percentage costs across both the group and suite of profiled functions.</p>
+            <p>The median profile takes <strong>0.003241 seconds</strong> to run 1,000            times. This value is used to calculate the relative percentage costs across both the group and suite of profiled functions.</p>
 
             <p>You can click on any group's heading to view the profile class as a whole, or you can click on each
             individual method to be taken to the source code behind each profile &ndash; particularly useful
@@ -94,70 +94,70 @@
 <span style="color: #0000BB">array_fill</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.002725 s</td>
+                                <td>0.002812 s</td>
                                 <td>2 &mu;s</td>
-                                <td class='good'>-56.45&#37;</td>
-                                <td class='good'>-14.28&#37;</td>
+                                <td class='good'>-55.37&#37;</td>
+                                <td class='good'>-13.24&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/ArrayProfiles.php#L17'><code><span style="color: #000000">
 <span style="color: #0000BB">array_fill</span><span style="color: #007700">(-</span><span style="color: #0000BB">50</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'foobar'</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.006257 s</td>
+                                <td>0.006301 s</td>
                                 <td>6 &mu;s</td>
                                 <td class='bad'>0&#37;</td>
-                                <td class='bad'>+96.82&#37;</td>
+                                <td class='bad'>+94.42&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/ArrayProfiles.php#L21'><code><span style="color: #000000">
 <span style="color: #0000BB">array_fill</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'bar'</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.006262 s</td>
+                                <td>0.006329 s</td>
                                 <td>6 &mu;s</td>
-                                <td class='bad'>+0.08&#37;</td>
-                                <td class='bad'>+96.98&#37;</td>
+                                <td class='bad'>+0.44&#37;</td>
+                                <td class='bad'>+95.28&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/ArrayProfiles.php#L25'><code><span style="color: #000000">
 <span style="color: #0000BB">array_fill</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1000</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'baz'</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.041581 s</td>
+                                <td>0.041997 s</td>
                                 <td>41 &mu;s</td>
-                                <td class='bad'>+564.55&#37;</td>
-                                <td class='bad'>+1207.99&#37;</td>
+                                <td class='bad'>+566.51&#37;</td>
+                                <td class='bad'>+1195.8&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/ArrayProfiles.php#L29'><code><span style="color: #000000">
 <span style="color: #0000BB">array_merge</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"foo"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"bar"</span><span style="color: #007700">),&nbsp;array(</span><span style="color: #DD0000">"baz"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"test"</span><span style="color: #007700">));</span>
 </span>
 </code></a></td>
-                                <td>0.003571 s</td>
-                                <td>3 &mu;s</td>
-                                <td class='good'>-42.93&#37;</td>
-                                <td class='bad'>+12.33&#37;</td>
+                                <td>0.002788 s</td>
+                                <td>2 &mu;s</td>
+                                <td class='good'>-55.75&#37;</td>
+                                <td class='good'>-13.98&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/ArrayProfiles.php#L36'><code><span style="color: #000000">
 <span style="color: #0000BB">array_merge</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mediumArray1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mediumArray2</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.022579 s</td>
+                                <td>0.022500 s</td>
                                 <td>22 &mu;s</td>
-                                <td class='bad'>+260.86&#37;</td>
-                                <td class='bad'>+610.25&#37;</td>
+                                <td class='bad'>+257.09&#37;</td>
+                                <td class='bad'>+594.23&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/ArrayProfiles.php#L40'><code><span style="color: #000000">
 <span style="color: #0000BB">shuffle</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mediumArray1</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.005404 s</td>
+                                <td>0.005729 s</td>
                                 <td>5 &mu;s</td>
-                                <td class='good'>-13.63&#37;</td>
-                                <td class='bad'>+69.99&#37;</td>
+                                <td class='good'>-9.08&#37;</td>
+                                <td class='bad'>+76.77&#37;</td>
                             </tr>
                                                                     <tr class=group>
                             <th><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/DateProfiles.php'>Date methods</a></th>
@@ -171,30 +171,30 @@
 <span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"Y-m-d&nbsp;H:i:s"</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.006653 s</td>
-                                <td>6 &mu;s</td>
-                                <td class='bad'>0&#37;</td>
-                                <td class='bad'>+109.28&#37;</td>
+                                <td>0.007528 s</td>
+                                <td>7 &mu;s</td>
+                                <td class='bad'>+6.84&#37;</td>
+                                <td class='bad'>+132.27&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/DateProfiles.php#L13'><code><span style="color: #000000">
 <span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"Y"</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.005970 s</td>
-                                <td>5 &mu;s</td>
-                                <td class='good'>-10.27&#37;</td>
-                                <td class='bad'>+87.79&#37;</td>
+                                <td>0.006829 s</td>
+                                <td>6 &mu;s</td>
+                                <td class='good'>-3.08&#37;</td>
+                                <td class='bad'>+110.71&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/DateProfiles.php#L17'><code><span style="color: #000000">
 <span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"l&nbsp;jS&nbsp;F&nbsp;Y"</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.006675 s</td>
-                                <td>6 &mu;s</td>
-                                <td class='bad'>+0.33&#37;</td>
-                                <td class='bad'>+109.97&#37;</td>
+                                <td>0.007046 s</td>
+                                <td>7 &mu;s</td>
+                                <td class='bad'>0&#37;</td>
+                                <td class='bad'>+117.4&#37;</td>
                             </tr>
                                                                     <tr class=group>
                             <th><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/HashProfiles.php'>Hashing methods</a></th>
@@ -207,21 +207,41 @@
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/HashProfiles.php#L11'><code><span style="color: #000000">
 <span style="color: #0000BB">md5</span><span style="color: #007700">(</span><span style="color: #DD0000">"abcdefghijklmnopqrstuvwxyz"</span><span style="color: #007700">);</span>
 </span>
-</code></a></td>
-                                <td>0.002268 s</td>
+</code><span class='alias'>*</span></a></td>
+                                <td>0.002342 s</td>
                                 <td>2 &mu;s</td>
-                                <td class='good'>-3.16&#37;</td>
-                                <td class='good'>-28.66&#37;</td>
+                                <td class='good'>-23.19&#37;</td>
+                                <td class='good'>-27.74&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/HashProfiles.php#L18'><code><span style="color: #000000">
+<span style="color: #0000BB">md5</span><span style="color: #007700">()&nbsp;</span><span style="color: #0000BB">with&nbsp;</span><span style="color: #007700">~</span><span style="color: #0000BB">520&nbsp;char&nbsp;string</span>
+</span>
+</code><span class='alias'>*</span></a></td>
+                                <td>0.003550 s</td>
+                                <td>3 &mu;s</td>
+                                <td class='bad'>+16.43&#37;</td>
+                                <td class='bad'>+9.53&#37;</td>
+                            </tr>
+                                                    <tr>
+                                <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/HashProfiles.php#L25'><code><span style="color: #000000">
 <span style="color: #0000BB">sha1</span><span style="color: #007700">(</span><span style="color: #DD0000">"abcdefghijklmnopqrstuvwxyz"</span><span style="color: #007700">);</span>
 </span>
-</code></a></td>
-                                <td>0.002416 s</td>
+</code><span class='alias'>*</span></a></td>
+                                <td>0.002549 s</td>
                                 <td>2 &mu;s</td>
-                                <td class='bad'>+3.16&#37;</td>
-                                <td class='good'>-24&#37;</td>
+                                <td class='good'>-16.4&#37;</td>
+                                <td class='good'>-21.35&#37;</td>
+                            </tr>
+                                                    <tr>
+                                <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/HashProfiles.php#L32'><code><span style="color: #000000">
+<span style="color: #0000BB">sha1</span><span style="color: #007700">()&nbsp;</span><span style="color: #0000BB">with&nbsp;</span><span style="color: #007700">~</span><span style="color: #0000BB">520&nbsp;char&nbsp;string</span>
+</span>
+</code><span class='alias'>*</span></a></td>
+                                <td>0.004454 s</td>
+                                <td>4 &mu;s</td>
+                                <td class='bad'>+46.08&#37;</td>
+                                <td class='bad'>+37.43&#37;</td>
                             </tr>
                                                                     <tr class=group>
                             <th><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/PregMatchProfiles.php'>PCRE methods</a></th>
@@ -235,40 +255,40 @@
 <span style="color: #0000BB">preg_match</span><span style="color: #007700">(</span><span style="color: #DD0000">"/^(.+)$/"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"test"</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.002740 s</td>
-                                <td>2 &mu;s</td>
-                                <td class='good'>-22.84&#37;</td>
-                                <td class='good'>-13.81&#37;</td>
+                                <td>0.003095 s</td>
+                                <td>3 &mu;s</td>
+                                <td class='good'>-18.32&#37;</td>
+                                <td class='good'>-4.5&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/PregMatchProfiles.php#L12'><code><span style="color: #000000">
 <span style="color: #0000BB">preg_match</span><span style="color: #007700">(</span><span style="color: #DD0000">"/^(.+)$/"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"test"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$matches</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.003557 s</td>
+                                <td>0.003984 s</td>
                                 <td>3 &mu;s</td>
-                                <td class='bad'>+0.17&#37;</td>
-                                <td class='bad'>+11.89&#37;</td>
+                                <td class='bad'>+5.15&#37;</td>
+                                <td class='bad'>+22.93&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/PregMatchProfiles.php#L19'><code><span style="color: #000000">
 <span style="color: #0000BB">preg_match</span><span style="color: #007700">()&nbsp;</span><span style="color: #0000BB">with&nbsp;typical&nbsp;postcode</span>
 </span>
 </code></a></td>
-                                <td>0.003680 s</td>
-                                <td>3 &mu;s</td>
-                                <td class='bad'>+3.63&#37;</td>
-                                <td class='bad'>+15.76&#37;</td>
+                                <td>0.004094 s</td>
+                                <td>4 &mu;s</td>
+                                <td class='bad'>+8.05&#37;</td>
+                                <td class='bad'>+26.32&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/PregMatchProfiles.php#L23'><code><span style="color: #000000">
 <span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">'/(\w+)&nbsp;(\d+),&nbsp;(\d+)/i'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'${1}1,$3'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'April&nbsp;15,&nbsp;2003'</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.003546 s</td>
+                                <td>0.003594 s</td>
                                 <td>3 &mu;s</td>
-                                <td class='good'>-0.14&#37;</td>
-                                <td class='bad'>+11.54&#37;</td>
+                                <td class='good'>-5.15&#37;</td>
+                                <td class='bad'>+10.89&#37;</td>
                             </tr>
                                                                     <tr class=group>
                             <th><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php'>String functions</a></th>
@@ -282,220 +302,220 @@
 <span style="color: #0000BB"></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"foo&nbsp;bar&nbsp;baz&nbsp;test"</span><span style="color: #007700">;</span>
 </span>
 </code></a></td>
-                                <td>0.001225 s</td>
+                                <td>0.001374 s</td>
                                 <td>1 &mu;s</td>
-                                <td class='good'>-50.74&#37;</td>
-                                <td class='good'>-61.47&#37;</td>
+                                <td class='good'>-47.03&#37;</td>
+                                <td class='good'>-57.61&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L28'><code><span style="color: #000000">
 <span style="color: #0000BB"></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">with&nbsp;large&nbsp;string&nbsp;</span><span style="color: #007700">(~</span><span style="color: #0000BB">520&nbsp;chars</span><span style="color: #007700">)</span>
 </span>
 </code></a></td>
-                                <td>0.002456 s</td>
+                                <td>0.002501 s</td>
                                 <td>2 &mu;s</td>
-                                <td class='good'>-1.25&#37;</td>
-                                <td class='good'>-22.74&#37;</td>
+                                <td class='good'>-3.59&#37;</td>
+                                <td class='good'>-22.83&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L40'><code><span style="color: #000000">
 <span style="color: #0000BB">explode</span><span style="color: #007700">(</span><span style="color: #DD0000">"&nbsp;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"foo&nbsp;bar&nbsp;baz&nbsp;test&nbsp;baz&nbsp;bar&nbsp;foo"</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.003029 s</td>
+                                <td>0.003113 s</td>
                                 <td>3 &mu;s</td>
-                                <td class='bad'>+21.79&#37;</td>
-                                <td class='good'>-4.72&#37;</td>
+                                <td class='bad'>+20.01&#37;</td>
+                                <td class='good'>-3.95&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L47'><code><span style="color: #000000">
 <span style="color: #0000BB">explode</span><span style="color: #007700">()&nbsp;</span><span style="color: #0000BB">on&nbsp;space&nbsp;with&nbsp;large&nbsp;input&nbsp;string</span>
 </span>
 </code></a></td>
-                                <td>0.014505 s</td>
+                                <td>0.014884 s</td>
                                 <td>14 &mu;s</td>
-                                <td class='bad'>+483.23&#37;</td>
-                                <td class='bad'>+356.28&#37;</td>
+                                <td class='bad'>+473.79&#37;</td>
+                                <td class='bad'>+359.24&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L51'><code><span style="color: #000000">
 <span style="color: #0000BB">htmlentities</span><span style="color: #007700">(</span><span style="color: #DD0000">"this&nbsp;'is'&nbsp;a&nbsp;&lt;strong&gt;test&lt;/strong&gt;&nbsp;&lt;div&gt;\"string!?\"&lt;/div&gt;"</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.003782 s</td>
+                                <td>0.003945 s</td>
                                 <td>3 &mu;s</td>
-                                <td class='bad'>+52.07&#37;</td>
-                                <td class='bad'>+18.97&#37;</td>
+                                <td class='bad'>+52.08&#37;</td>
+                                <td class='bad'>+21.72&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L58'><code><span style="color: #000000">
 <span style="color: #0000BB">htmlentities</span><span style="color: #007700">()&nbsp;</span><span style="color: #0000BB">with&nbsp;ENT_QUOTES&nbsp;flag</span>
 </span>
 </code></a></td>
-                                <td>0.003861 s</td>
+                                <td>0.003986 s</td>
                                 <td>3 &mu;s</td>
-                                <td class='bad'>+55.25&#37;</td>
-                                <td class='bad'>+21.45&#37;</td>
+                                <td class='bad'>+53.66&#37;</td>
+                                <td class='bad'>+22.99&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L62'><code><span style="color: #000000">
 <span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #DD0000">"this&nbsp;'is'&nbsp;a&nbsp;&lt;strong&gt;test&lt;/strong&gt;&nbsp;&lt;div&gt;\"string!?\"&lt;/div&gt;"</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.002645 s</td>
-                                <td>2 &mu;s</td>
-                                <td class='bad'>+6.35&#37;</td>
-                                <td class='good'>-16.8&#37;</td>
+                                <td>0.003097 s</td>
+                                <td>3 &mu;s</td>
+                                <td class='bad'>+19.39&#37;</td>
+                                <td class='good'>-4.44&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L69'><code><span style="color: #000000">
 <span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">()&nbsp;</span><span style="color: #0000BB">with&nbsp;ENT_QUOTES&nbsp;flag</span>
 </span>
 </code></a></td>
-                                <td>0.002870 s</td>
+                                <td>0.002987 s</td>
                                 <td>2 &mu;s</td>
-                                <td class='bad'>+15.4&#37;</td>
-                                <td class='good'>-9.72&#37;</td>
+                                <td class='bad'>+15.15&#37;</td>
+                                <td class='good'>-7.84&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L73'><code><span style="color: #000000">
 <span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">"&nbsp;"</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"bar"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"baz"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"test"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"baz"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"bar"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">));</span>
 </span>
 </code></a></td>
-                                <td>0.003329 s</td>
+                                <td>0.003370 s</td>
                                 <td>3 &mu;s</td>
-                                <td class='bad'>+33.86&#37;</td>
-                                <td class='bad'>+4.72&#37;</td>
+                                <td class='bad'>+29.92&#37;</td>
+                                <td class='bad'>+3.98&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L77'><code><span style="color: #000000">
 <span style="color: #0000BB">md5</span><span style="color: #007700">(</span><span style="color: #DD0000">"abcdefghijklmnopqrstuvwxyz"</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.002268 s</td>
+                                <td>0.002342 s</td>
                                 <td>2 &mu;s</td>
-                                <td class='good'>-8.81&#37;</td>
-                                <td class='good'>-28.66&#37;</td>
+                                <td class='good'>-9.71&#37;</td>
+                                <td class='good'>-27.74&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L84'><code><span style="color: #000000">
 <span style="color: #0000BB">md5</span><span style="color: #007700">()&nbsp;</span><span style="color: #0000BB">with&nbsp;</span><span style="color: #007700">~</span><span style="color: #0000BB">520&nbsp;char&nbsp;string</span>
 </span>
 </code></a></td>
-                                <td>0.003372 s</td>
+                                <td>0.003550 s</td>
                                 <td>3 &mu;s</td>
-                                <td class='bad'>+35.59&#37;</td>
-                                <td class='bad'>+6.07&#37;</td>
+                                <td class='bad'>+36.85&#37;</td>
+                                <td class='bad'>+9.53&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L88'><code><span style="color: #000000">
 <span style="color: #0000BB">sha1</span><span style="color: #007700">(</span><span style="color: #DD0000">"abcdefghijklmnopqrstuvwxyz"</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.002416 s</td>
+                                <td>0.002549 s</td>
                                 <td>2 &mu;s</td>
-                                <td class='good'>-2.85&#37;</td>
-                                <td class='good'>-24&#37;</td>
+                                <td class='good'>-1.73&#37;</td>
+                                <td class='good'>-21.35&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L95'><code><span style="color: #000000">
 <span style="color: #0000BB">sha1</span><span style="color: #007700">()&nbsp;</span><span style="color: #0000BB">with&nbsp;</span><span style="color: #007700">~</span><span style="color: #0000BB">520&nbsp;char&nbsp;string</span>
 </span>
 </code></a></td>
-                                <td>0.004287 s</td>
+                                <td>0.004454 s</td>
                                 <td>4 &mu;s</td>
-                                <td class='bad'>+72.38&#37;</td>
-                                <td class='bad'>+34.85&#37;</td>
+                                <td class='bad'>+71.7&#37;</td>
+                                <td class='bad'>+37.43&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L99'><code><span style="color: #000000">
 <span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #DD0000">"some&nbsp;random&nbsp;arbitrary&nbsp;string&nbsp;here"</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.001881 s</td>
+                                <td>0.001991 s</td>
                                 <td>1 &mu;s</td>
-                                <td class='good'>-24.37&#37;</td>
-                                <td class='good'>-40.83&#37;</td>
+                                <td class='good'>-23.25&#37;</td>
+                                <td class='good'>-38.57&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L103'><code><span style="color: #000000">
 <span style="color: #0000BB">str_pad</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestStr"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">STR_PAD_LEFT</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.002358 s</td>
+                                <td>0.002425 s</td>
                                 <td>2 &mu;s</td>
-                                <td class='good'>-5.19&#37;</td>
-                                <td class='good'>-25.83&#37;</td>
+                                <td class='good'>-6.52&#37;</td>
+                                <td class='good'>-25.18&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L107'><code><span style="color: #000000">
 <span style="color: #0000BB">str_pad</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestStr"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.002104 s</td>
+                                <td>0.002244 s</td>
                                 <td>2 &mu;s</td>
-                                <td class='good'>-15.4&#37;</td>
-                                <td class='good'>-33.82&#37;</td>
+                                <td class='good'>-13.49&#37;</td>
+                                <td class='good'>-30.76&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L111'><code><span style="color: #000000">
 <span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #DD0000">"abcdefghijklmnopqrstuvwxyq"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"a"</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.002026 s</td>
+                                <td>0.002224 s</td>
                                 <td>2 &mu;s</td>
-                                <td class='good'>-18.54&#37;</td>
-                                <td class='good'>-36.27&#37;</td>
+                                <td class='good'>-14.26&#37;</td>
+                                <td class='good'>-31.38&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L115'><code><span style="color: #000000">
 <span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #DD0000">"abcdefghijklmnopqrstuvwxyq"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"m"</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.002029 s</td>
+                                <td>0.002196 s</td>
                                 <td>2 &mu;s</td>
-                                <td class='good'>-18.42&#37;</td>
-                                <td class='good'>-36.17&#37;</td>
+                                <td class='good'>-15.34&#37;</td>
+                                <td class='good'>-32.24&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L119'><code><span style="color: #000000">
 <span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #DD0000">"abcdefghijklmnopqrstuvwxyq"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"z"</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.002053 s</td>
+                                <td>0.002227 s</td>
                                 <td>2 &mu;s</td>
-                                <td class='good'>-17.45&#37;</td>
-                                <td class='good'>-35.42&#37;</td>
+                                <td class='good'>-14.15&#37;</td>
+                                <td class='good'>-31.29&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L123'><code><span style="color: #000000">
 <span style="color: #0000BB">str_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"bar"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"foobarfoobar"</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.002251 s</td>
+                                <td>0.002484 s</td>
                                 <td>2 &mu;s</td>
-                                <td class='good'>-9.49&#37;</td>
-                                <td class='good'>-29.19&#37;</td>
+                                <td class='good'>-4.24&#37;</td>
+                                <td class='good'>-23.36&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L127'><code><span style="color: #000000">
 <span style="color: #0000BB">str_shuffle</span><span style="color: #007700">(</span><span style="color: #DD0000">"abcdefghijklmnopqrstuvwxyz"</span><span style="color: #007700">);</span>
 </span>
 </code></a></td>
-                                <td>0.002519 s</td>
+                                <td>0.002640 s</td>
                                 <td>2 &mu;s</td>
-                                <td class='bad'>+1.29&#37;</td>
-                                <td class='good'>-20.76&#37;</td>
+                                <td class='bad'>+1.77&#37;</td>
+                                <td class='good'>-18.54&#37;</td>
                             </tr>
                                                     <tr>
                                 <td><a href='https://github.com/makeusabrew/phpperf/tree/master/profiles/StringProfiles.php#L134'><code><span style="color: #000000">
 <span style="color: #0000BB">str_shuffle</span><span style="color: #007700">()&nbsp;</span><span style="color: #0000BB">with&nbsp;a&nbsp;large&nbsp;</span><span style="color: #007700">(~</span><span style="color: #0000BB">520&nbsp;char</span><span style="color: #007700">)&nbsp;</span><span style="color: #0000BB">string</span>
 </span>
 </code></a></td>
-                                <td>0.013198 s</td>
+                                <td>0.013375 s</td>
                                 <td>13 &mu;s</td>
-                                <td class='bad'>+430.68&#37;</td>
-                                <td class='bad'>+315.16&#37;</td>
+                                <td class='bad'>+415.61&#37;</td>
+                                <td class='bad'>+312.68&#37;</td>
                             </tr>
                                                             </tbody>
             </table>
@@ -516,7 +536,7 @@
             </div>
 
             <p>These tests don't run in a vacuum &ndash; inevitably no two runs will yield the same results, and even then only serve
-            as a rough baseline based on the machine I run them on &ndash; your results may differe significantly. The mechanism used to
+            as a rough baseline based on the machine I run them on &ndash; your results may differ significantly. The mechanism used to
             run and time the tests probably isn't the most scientific either, so if you've got a suggestion then
             please do <a href="https://github.com/makeusabrew/phpperf/">fork the project</a> &ndash; any improvements are welcome!</p>
 
