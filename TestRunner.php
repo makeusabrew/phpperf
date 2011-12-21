@@ -4,7 +4,7 @@
 include_once('IProfile.php');
 class TestRunner {
     const ITERATIONS = 1000;
-    const REPETITIONS = 10;
+    const REPETITIONS = 100;
 
     protected $profiles = array();
     protected $median = array();
@@ -59,8 +59,9 @@ class TestRunner {
                     $this->writeLine("Method is alias for ".$alias);
                     // helloooo alias! store a pointer for later
                     $result = array(
-                        'label' => $label,
-                        'alias' => $alias,
+                        'alias'     => $alias,
+                        'method'    => $fn,
+                        'startLine' => $startLine,
                     );
                 } else {
                     // unless explicitly defined we just take the first line of the profile as our label
@@ -107,17 +108,6 @@ class TestRunner {
                 $results[] = $result;
             }
 
-            /*
-            $groupMedian = $this->getMedian(array_map(function($v) {
-                return $v['mean'];
-            }, $results));
-
-            foreach($results as $i => $result) {
-                $result['pc_group'] = (($result['mean'] / $groupMedian) * 100) - 100;
-                $results[$i] = $result;
-            }
-            */
-
             $this->profiles[] = array(
                 'class'    => $class,
                 'title'    => $instance->getTitle(),
@@ -133,6 +123,20 @@ class TestRunner {
         $this->resolveProfileAliases();
 
 
+        /**
+         * resolve group percentage differences
+         */
+        foreach ($this->profiles as $i => $profile) {
+
+            $groupMedian = $this->getMedian(array_map(function($v) {
+                return $v['mean'];
+            }, $profile['results']));
+
+            foreach($profile['results'] as $j => $result) {
+                $result['pc_group'] = (($result['mean'] / $groupMedian) * 100) - 100;
+                $this->profiles[$i]['results'][$j] = $result;
+            }
+        }
 
         $this->median = $this->getMedian($this->median);
 
@@ -166,28 +170,25 @@ class TestRunner {
         }
     }
     
-    protected function resolveAlias($result) {
-        list($class, $method) = explode("::", $result['alias']);
-        $label = $result['label'];
+    protected function resolveAlias($alias) {
+        list($class, $method) = explode("::", $alias['alias']);
 
         foreach ($this->profiles as $i => $profile) {
 
             if ($profile['class'] == $class) {
-                $this->writeLine("Got alias class");
 
                 foreach ($profile['results'] as $result) {
                     if ($result['method'] == $method) {
-                        $this->writeLine("Got alias method!");
 
                         // keep averages in check
                         $this->mean += $result['mean'];
                         $this->median[] = $result['mean'];
                         
                         // override return values with alias's original label if it has one
-                        if ($label !== false) {
-                            $result['label'] = $label;
-                        }
-                        return $result;
+                        return array_merge(
+                            $result, 
+                            $alias
+                        );
                     }
                 }
             }

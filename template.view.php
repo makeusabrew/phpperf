@@ -65,20 +65,6 @@
             individual method to be taken to the source code behind each profile &ndash; particularly useful
             if the profile label is a summary rather than actual code.</p>
 
-
-            <div class='page-header'>
-                <h2>Units of measurement</h2>
-            </div>
-
-            <ul>
-                <li><strong>&mu;s</strong> &ndash; <a href="http://en.wikipedia.org/wiki/Microsecond">microseconds</a>, equivalent to 0.001 milliseconds. It takes roughly 350,000 of these to blink your eye</li>
-                <li><strong>s</strong> &ndash; the humble <a href="http://en.wikipedia.org/wiki/Second">second</a>.</li>
-            </ul>
-
-            <div class='page-header'>
-                <h2>Benchmark</h2>
-            </div>
-
             <p>All of these tests are compiled using the same machine each time. Inevitably, each
             run may vary, but the differences should be slight and the relative performance should be fairly consistent.</p>
             <ul>
@@ -87,6 +73,9 @@
                 <li>Ubuntu 11.10 Desktop Edition</li>
                 <li>PHP <?php echo phpversion() ?></li>
             </ul>
+
+            <p>The <strong>&mu;s</strong> symbol stands for <a href="http://en.wikipedia.org/wiki/Microsecond">microseconds</a>,
+            equivalent to 0.001 milliseconds. It takes roughly 350,000 of these to blink your eye.</p>
 
             <h2>Results</h2>
 
@@ -113,7 +102,7 @@
                         <?php foreach($profile['results'] as $stats): ?>
                             <tr>
                                 <td><a href='<?php echo $this->url.'tree/master/profiles/'.$profile['filename'] ?>#L<?php echo $stats['startLine'] ?>'><?php echo $this->highlight($stats['label']) ?></a></td>
-                                <td><?php echo $stats['mean'] ?>s</td>
+                                <td><?php echo $stats['mean'] ?> s</td>
                                 <td><?php echo $this->microformat($stats['single']) ?></td>
                                 <td class='<?php echo ($stats['pc_group'] < 0) ? 'good' : 'bad' ?>'><?php if ($stats['pc_group'] > 0):?>+<?php endif; ?><?php echo round($stats['pc_group'], 2) ?>&#37;</td>
                                 <td class='<?php echo ($stats['pc_suite'] < 0) ? 'good' : 'bad' ?>'><?php if ($stats['pc_suite'] > 0):?>+<?php endif; ?><?php echo round($stats['pc_suite'], 2) ?>&#37;</td>
