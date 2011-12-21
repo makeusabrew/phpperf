@@ -48,8 +48,12 @@
             </div>
 
             <p>The table below shows methods loosely grouped by type and usage. The column representing a <em>single</em>
-            method call is derived solely from dividing the mean value by the number of iterations, so it is approximate.
-            The relative column shows the cost of the method Vs the <strong>median</strong> across both the group and suite of profiled functions.</p>
+            method call is derived solely from dividing the mean value by the number of iterations, so it is approximate.</p>
+
+            <p>Each test comprises of <strong><?php echo number_format($this->meta['iterations']) ?></strong> method calls
+            averaged over <strong><?php echo $this->meta['repetitions'] ?></strong> repetitions.</p>
+            <p>The median profile takes <strong><?php echo $this->meta['median'] ?> seconds</strong> to run <?php echo number_format($this->meta['iterations']) ?>
+            times. This value is used to calculate the relative percentage costs across both the group and suite of profiled functions.</p>
 
             <p>You can click on any group's heading to view the profile class as a whole, or you can click on each
             individual method to be taken to the source code behind each profile &ndash; particularly useful
@@ -60,9 +64,6 @@
                 <h2>Units of measurement</h2>
             </div>
 
-            <p>Each test comprises of <strong><?php echo number_format($this->meta['iterations']) ?></strong> method calls
-            averaged over <strong><?php echo $this->meta['repetitions'] ?></strong> repetitions.</p>
-            <p>The median profile takes <strong><?php echo $this->meta['median'] ?> seconds</strong> to run <?php echo number_format($this->meta['iterations']) ?> times.</p>
             <ul>
                 <li><strong>&mu;s</strong> &ndash; <a href="http://en.wikipedia.org/wiki/Microsecond">microseconds</a>, equivalent to 0.001 milliseconds. It takes roughly 350,000 of these to blink your eye</li>
                 <li><strong>ms</strong> &ndash; <a href="http://en.wikipedia.org/wiki/Millisecond">milliseconds</a></li>
