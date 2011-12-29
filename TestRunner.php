@@ -9,6 +9,8 @@ class TestRunner {
     protected $profiles = array();
     protected $median = array();
     protected $mean = 0;
+    protected $startTime = null;
+    protected $endTime = null;
 
     public function setClasses($classes) {
         $this->classes = $classes;
@@ -23,6 +25,7 @@ class TestRunner {
     }
 
     public function run() {
+        $this->startTime = microtime(true);
 
         foreach ($this->classes as $class) {
             $this->writeLine("Profiling ".$class);
@@ -148,9 +151,11 @@ class TestRunner {
                 $this->profiles[$i]['results'][$j] = $stats;
             }
         }
+        $this->endTime = microtime(true);
 
         $this->write(json_encode(array(
             'meta' => array(
+                'duration'    => ($this->endTime - $this->startTime),
                 'iterations'  => self::ITERATIONS,
                 'repetitions' => self::REPETITIONS,
                 'mean'        => $this->mean,

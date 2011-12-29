@@ -26,6 +26,12 @@
             .well iframe {
                 width:190px !important;
             }
+
+            .intro p {
+                font-size:90%;
+                margin-bottom:5px;
+            }
+
         </style>
         <script type="text/javascript">
 
@@ -53,29 +59,34 @@
                 <h1>PHP Performance Metrics</h1>
             </div>
 
-            <p>The table below shows methods loosely grouped by type and usage. The column representing a <em>single</em>
-            method call is derived solely from dividing the mean value by the number of iterations, so it is approximate.</p>
+            <div class=intro>
+                <p>The table below profiles <a href="http://www.php.net/manual/en/functions.internal.php">built-in PHP method</a>
+                performance, loosely grouped by type and usage.</p>
 
-            <p>Each test comprises of <strong><?php echo number_format($this->meta['iterations']) ?></strong> method calls
-            averaged over <strong><?php echo $this->meta['repetitions'] ?></strong> repetitions.</p>
-            <p>The median profile takes <strong><?php echo $this->meta['median'] ?> seconds</strong> to run <?php echo number_format($this->meta['iterations']) ?>
-            times. This value is used to calculate the relative percentage costs across both the group and suite of profiled functions.</p>
+                <p>Each test comprises of <strong><?php echo number_format($this->meta['iterations']) ?></strong> method calls
+                averaged over <strong><?php echo $this->meta['repetitions'] ?></strong> repetitions.</p>
+                <p>The median profile takes <strong><?php echo $this->meta['median'] ?> seconds</strong> to run <?php echo number_format($this->meta['iterations']) ?>
+                times. This value is used to calculate the relative percentage costs across both the group and suite of profiled functions. The value
+                for a single method call is derived by dividing the mean value by the number of iterations, so it is approximate.</p>
 
-            <p>You can click on any group's heading to view the profile class as a whole, or you can click on each
-            individual method to be taken to the source code behind each profile &ndash; particularly useful
-            if the profile label is a summary rather than actual code.</p>
+                <p>You can click on any group's heading to view the profile class as a whole, or you can click on each
+                individual method to be taken to the source code behind each profile &ndash; particularly useful
+                if the profile label is a summary rather than actual code.</p>
 
-            <p>All of these tests are compiled using the same machine each time. Inevitably, each
-            run may vary, but the differences should be slight and the relative performance should be fairly consistent.</p>
-            <ul>
-                <li>AMD Athlon(tm) 64 X2 Dual Core Processor 4200+ (2.2 GHz)</li>
-                <li>3Gb RAM</li>
-                <li>Ubuntu 11.10 Desktop Edition</li>
-                <li>PHP <?php echo phpversion() ?></li>
-            </ul>
+                <p>All of these tests are compiled using the same machine each time. Inevitably, each
+                run may vary, but the differences should be slight and the relative performance should be fairly consistent.</p>
+                <ul>
+                    <li><strong>CPU:</strong> AMD Athlon(tm) 64 X2 Dual Core Processor 4200+ (2.2 GHz)</li>
+                    <li><strong>RAM:</strong> 3Gb</li>
+                    <li><strong>OS:</strong> Ubuntu 11.10 Desktop Edition</li>
+                    <li><strong>PHP:</strong> <?php echo phpversion() ?></li>
+                </ul>
 
-            <p>The <strong>&mu;s</strong> symbol stands for <a href="http://en.wikipedia.org/wiki/Microsecond">microseconds</a>,
-            equivalent to 0.001 milliseconds. It takes roughly 350,000 of these to blink your eye.</p>
+                <p>The <strong>&mu;s</strong> symbol stands for <a href="http://en.wikipedia.org/wiki/Microsecond">microseconds</a>,
+                equivalent to 0.001 milliseconds. It takes roughly 350,000 of these to blink your eye.</p>
+
+                <p><em>This run took <?php echo round($this->meta['duration'], 2) ?> seconds and was generated on <?php echo date("d/m/Y H:i:s") ?></em></p>
+            </div>
 
             <h2>Results</h2>
 

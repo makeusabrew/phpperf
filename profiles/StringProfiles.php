@@ -134,4 +134,74 @@ class StringProfiles implements IProfile {
     public function profileStrShuffleLargeString() {
         str_shuffle($this->largeStr);
     }
+
+    public function profileAddSlashesWithSimpleString() {
+        addslashes("This string contains nothing which will be replaced");
+    }
+
+    public function profileAddSlashesWithStringRequiringReplacement() {
+        addslashes("'this string' will 'need ' \" \lots of ''' replacement''");
+    }
+
+    /*
+    public function profileCryptWithString() {
+        crypt("the string to encrypt");
+    }
+    */
+
+    public function profileCryptWithSalt() {
+        crypt("the string to encrypt", "salt");
+    }
+
+    public function profileLcFirst() {
+        lcfirst("This is a test string - uppercase");
+    }
+
+    public function profileLcFirstAlreadyLowercase() {
+        lcfirst("this is a test string - lowercase");
+    }
+
+    public function profileUcFirstUppercase() {
+        ucfirst("This is a test string - uppercase");
+    }
+
+    public function profileUcFirstAlreadyLowercase() {
+        ucfirst("this is a test string - lowercase");
+    }
+
+    public function profileUcWordsUppercase() {
+        ucwords("This Is A Test String - Uppercase");
+    }
+
+    public function profileUcFirstLowercase() {
+        ucwords("this is a test string - lowercase");
+    }
+
+    public function profileLevenshteinWithMatchingStrings() {
+        levenshtein("this string matches", "this string matches");
+    }
+
+    public function profileLevenshteinWithSimilarStrings() {
+        levenshtein("this is a string", "this si string");
+    }
+
+    public function profileLevenshteinWithOppositeStrings() {
+        levenshtein("this is a string", "gnirts a si siht");
+    }
+
+    public function profileTrimWithNoSpacedPadding() {
+        trim("this has no padding");
+    }
+
+    public function profileTrimWithSpacedPaddingLeft() {
+        trim("    this string has padding on the left");
+    }
+
+    public function profileTrimWithSpacedPaddingRight() {
+        trim("this string has padding on the right     ");
+    }
+
+    public function profileTrimWithSpacedPadding() {
+        trim("     this string has padding on both sides     ");
+    }
 }
