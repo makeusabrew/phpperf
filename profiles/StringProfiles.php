@@ -204,4 +204,30 @@ class StringProfiles implements IProfile {
     public function profileTrimWithSpacedPadding() {
         trim("     this string has padding on both sides     ");
     }
+
+    public function profileStringConcatenationWithDot() {
+        "some string"."some other string";
+    }
+
+    /**
+     * @label "some string$some_other_string"
+     */
+    public function profileStringConcatenationWithInterpolation() {
+        $some_other_string = "some other string";
+        "some string$some_other_string";
+    }
+
+    /**
+     * @label string dot concatenation with ~520 char string 
+     */
+    public function profileStringConcatenationWithDotLargeString() {
+        "some string".$this->largeStr;
+    }
+
+    /**
+     * @label string concatenation with interpolation with ~520 char string 
+     */
+    public function profileStringConcatenationWithInterpolationLargeString() {
+        "some string{$this->largeStr}";
+    }
 }
