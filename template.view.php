@@ -1,4 +1,4 @@
-<!doctype html>
+<?php date_default_timezone_set('Europe/London');?><!doctype html>
 <html>
     <head>
         <title>PHP Performance Metrics</title>
