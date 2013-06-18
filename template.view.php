@@ -152,6 +152,7 @@
             Every contributor will be listed here in the order they first helped out with the project. Think of the fame!</p>
             <ul>
                 <li><a href="http://twitter.com/makeusabrew">@makeusabrew</a> (author)</li>
+                <li><a href="https://github.com/hkdobrev">@hkdobrev</a></li>
             </ul>
 
         </div>
