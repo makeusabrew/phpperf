@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>PHP Performance Metrics</title>
-        <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+        <link rel="stylesheet" href="http://bootstrapdocs.com/v1.4.0/bootstrap.css">
         <meta name="google-site-verification" content="25AfGx-XF6ikgholPhv2GQ5sTxLz0gk13Eklidw3bds" />
         <style>
             table tr td,
