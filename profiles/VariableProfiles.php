@@ -2,6 +2,7 @@
 
 class VariableProfiles implements IProfile {
     public function __construct() {
+        $this->null = null;
         $this->string = "foo";
         $this->bool   = true;
         $this->integer= 1234;
@@ -19,6 +20,14 @@ class VariableProfiles implements IProfile {
 
     public function profileIsEmptyOnSimpleString() {
         empty($this->string);
+    }
+
+    public function profileIsEmptyOnNullValue() {
+        empty($this->null);
+    }
+
+    public function profileIsNullOnNullValue() {
+        null == $this->null;
     }
 
     /*
